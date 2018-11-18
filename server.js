@@ -4,9 +4,7 @@ const bodyParser = require('body-parser');
 
 const records = require('./routes/api/records');
 
-
 const app = express();
-
 
 // Bodyparser Middleware
 app.use(bodyParser.json());
