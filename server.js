@@ -2,6 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+const users = require('./routes/api/users');
+const profile = require('./routes/api/profile');
+const posts = require('./routes/api/posts')
+
 const records = require('./routes/api/records');
 
 const app = express();
@@ -18,6 +22,10 @@ mongoose.connect(db)
     .catch(err => console.log(err));
 
     //Use routes
+    app.use('/api/users', users);
+    app.use('/api/profile', profile);
+    app.use('/api/posts', posts);
+
     app.use('/api/records', records);
 
     const port = process.env.PORT || 5000;
